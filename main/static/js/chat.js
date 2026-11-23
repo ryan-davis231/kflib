@@ -27,7 +27,7 @@ function playxtmsgsound(){
 				document.body.appendChild(audio_player);
 			}
 			
-			audio_player.src=commonWebAddresss+"/static/com/img/msgSound.mp3";
+			audio_player.src=serverCdnAddress+"/static/com/img/msgSound.mp3";
 			audio_player.load();
 	  		audio_player.play();
 	}catch(err){
@@ -2737,8 +2737,8 @@ function sendFace(imgsrc){
 		return;
 	}
 	var msgId=XtimGlobalObject.generateUUID();
-	MobileChatWindow.addMsg("<img width=\"36\" height=\"36\" src=\""+agentsiteimgaddresspath+imgsrc+"\">","customer",XtLanguageConst.yours,msgId);
-	XtimGlobalObject.sendMsg("<img width=\"56\" height=\"56\" src=\""+agentsiteimgaddresspath+imgsrc+"\">",msgId,true,0,1);
+	MobileChatWindow.addMsg("<img width=\"36\" height=\"36\" src=\""+serverCdnAddress+"/"+imgsrc+"\">","customer",XtLanguageConst.yours,msgId);
+	XtimGlobalObject.sendMsg("<img width=\"56\" height=\"56\" src=\""+serverCdnAddress+"/"+imgsrc+"\">",msgId,true,0,1);
 }
 
 function openFaceDiv(){
@@ -2763,9 +2763,9 @@ function openFaceDiv(){
 	    
 	    var faceimgstr="";
 	    for(var i=0;i<23;i++){
-	    	faceimgstr+="<img style=\"padding:2px;width:36px;height:36px;\" src=\""+agentsiteimgaddresspath+"static/mobileFace/f0"+i+".png\" onClick=\"sendFace('static/mobileFace/f0"+i+".png')\" style=\"padding:6px\">";
+	    	faceimgstr+="<img style=\"padding:2px;width:36px;height:36px;\" src=\""+serverCdnAddress+"/static/mobileFace/f0"+i+".png\" onClick=\"sendFace('static/mobileFace/f0"+i+".png')\" style=\"padding:6px\">";
 	    }
-	    faceimgstr+="<img style=\"padding:2px;width:36px;height:36px;\" onClick=\"closeFaceDiv()\" src=\""+agentsiteimgaddresspath+"static/mobileFace/button_cancel.png\">";
+	    faceimgstr+="<img style=\"padding:2px;width:36px;height:36px;\" onClick=\"closeFaceDiv()\" src=\""+serverCdnAddress+"/static/mobileFace/button_cancel.png\">";
 	    facediv.innerHTML=faceimgstr;
 	    faceContainer.appendChild(facediv);
 	}
@@ -3103,7 +3103,7 @@ function msgBoxscroll() {
 
 function historyMsgInit(){
 	document.getElementById("mnSoundRecordButton").innerHTML=XtLanguageConst.holdtotalk;
-	document.getElementById("mnloading").innerHTML="<img style=\"vertical-align:middle\" src=\""+clientStyleWebPath+"/loading.gif\"> "+XtLanguageConst.loading+"...";
+	document.getElementById("mnloading").innerHTML="<img style=\"vertical-align:middle\" src=\""+serverCdnAddress+"/loading.gif\"> "+XtLanguageConst.loading+"...";
 	document.getElementById("xtChatWindowMsgBox").addEventListener('touchmove',function(event) {
         clearTimeout(msgBoxscroll.timer);
         msgBoxscroll.timer = setTimeout(msgBoxscroll,500);
