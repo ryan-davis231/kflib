@@ -3104,7 +3104,7 @@ function msgBoxscroll() {
 
 function historyMsgInit(){
 	document.getElementById("mnSoundRecordButton").innerHTML=XtLanguageConst.holdtotalk;
-	document.getElementById("mnloading").innerHTML="<img style=\"vertical-align:middle\" src=\""+serverCdnAddress+"/loading.gif\"> "+XtLanguageConst.loading+"...";
+	document.getElementById("mnloading").innerHTML="<img style=\"vertical-align:middle\" src=\""+clientcdnStyleWebPath+"/loading.gif\"> "+XtLanguageConst.loading+"...";
 	document.getElementById("xtChatWindowMsgBox").addEventListener('touchmove',function(event) {
         clearTimeout(msgBoxscroll.timer);
         msgBoxscroll.timer = setTimeout(msgBoxscroll,500);
