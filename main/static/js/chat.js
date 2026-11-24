@@ -727,7 +727,7 @@ XtimGlobalObject={
 		}
 		fileref.addEventListener("error",function (){
 			document.getElementById("loadingmask").style.display="block";
-			document.getElementById("loadingmask").innerHTML="加载样式文件失败";
+			document.getElementById("loadingmask").innerHTML="加载样式文件失败<br><br><a class='mykfbutton' onclick='reloadpage()'>点此重新加载</a>";
 		});
 		fileref.addEventListener("load",function (){
 			if(document.getElementById("loadingmask")!=null){
