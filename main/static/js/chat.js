@@ -725,6 +725,10 @@ XtimGlobalObject={
 		if(typeof fileref!="undefined"){
 			document.getElementsByTagName("head")[0].appendChild(fileref);
 		}
+		fileref.addEventListener("error",function (){
+			document.getElementById("loadingmask").style.display="block";
+			document.getElementById("loadingmask").innerHTML="加载样式文件失败";
+		});
 		fileref.addEventListener("load",function (){
 			if(document.getElementById("loadingmask")!=null){
 				document.getElementById("loadingmask").style.display="none";
